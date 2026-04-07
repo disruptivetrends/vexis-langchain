@@ -1,0 +1,58 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "vexis-langchain"
+version = "0.1.0"
+description = "VEXIS AI Governance adapter for LangChain — automatic policy checks, PII masking, and audit trails for every LLM call"
+readme = "README.md"
+license = "Apache-2.0"
+requires-python = ">=3.9"
+authors = [{ name = "VEXIS", email = "sdk@vexis.io" }]
+keywords = [
+    "vexis",
+    "langchain",
+    "ai-governance",
+    "guardrails",
+    "llm-security",
+    "pii-detection",
+    "callback-handler",
+    "audit-trail",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Security",
+    "Typing :: Typed",
+]
+dependencies = [
+    "vexis-sdk>=0.5.0",
+    "langchain-core>=0.2.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "pytest-asyncio>=0.23", "mypy>=1.10", "ruff>=0.5"]
+
+[project.urls]
+Homepage = "https://vexis.io"
+Documentation = "https://docs.vexis.io/integrations/langchain"
+Repository = "https://github.com/disruptivetrends/vexis-langchain"
+
+[tool.hatch.build.targets.wheel]
+packages = ["vexis_langchain"]
+
+[tool.ruff]
+target-version = "py39"
+line-length = 120
+
+[tool.mypy]
+strict = true
+python_version = "3.9"
